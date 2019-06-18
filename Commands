@@ -1,0 +1,283 @@
+Command to find mod deflate present on server:
+
+httpd -t -D DUMP_MODULES
+
+Check  deflate_module (static)
+========
+http://tecadmin.net/how-to-enable-gzip-compression-on-apache/
+Check website gzip compression
+
+=============
+ip connection for load
+
+netstat -atun | awk '{print $5}' | cut -d: -f1 | sed -e '/^$/d' |sort | uniq -c | sort -n
+
+netstat -anp |grep 'tcp\|udp' | awk '{print $5}'| cut -d: -f1 | sort | uniq -c |sort -n
+===============
+[root@server ~]# cat /var/webuzo/my.conf
+Helloworld@01
+[root@server ~]# mysqladmin pr -u root -p
+======
+mkdir -p /home/boxnbiz/public_html/BACKUP/Database_Backup_`date | awk {'print $1'}`/MySQL
+for  i in `mysql -u root -h localhost  -Bse 'show databases'`; do mysqldump --lock-tables=0  $i > /home/boxnbiz/public_html/BACKUP/Database_Backup_`date | awk {'print $1'}`/MySQL/$i.sql ; done
+============
+
+Files permission:   find . -type f -exec chmod 644 {} \;
+Folders permission: find . -type d -exec chmod 755 {} \;
+
+find . -type f -exec chmod 644 {} \;
+find . -type d -exec chmod 755 {} \;
+
+find . -type f -name '*.php' | xargs egrep -i "(eval) *\(" | grep '))))' | awk {'print $1'} | cut -d: -f1
+=======
+git from user shell
+
+--  /usr/local/cpanel/3rdparty/bin/git
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://hotelsblue.com [R,L]
+
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+RewriteCond !{HTTPS} off
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+</IfModule>
+
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.kandhuladevi.in/$1 [R,L]
+
+
+RewriteEngine on
+RewriteBase /
+RewriteRule ^(.+)\.php$ /$1 [R,L]
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*?)/?$ /$1.php [NC,END]
+
+/home/examteller/public_html/wp-content/plugins/advanced-custom-fields-table-field/css/
+find ./ -size +1000000000c
+ll -lrsh /home/*/*.zip
+ll -lrsh /home/*/*.tar.gz
+ll -lrsh /home/*/public_html/error_log
+ll -lrsh /home/*/*.trash
+find / -name '*' -size +500M
+find /home -type f -size +500000k -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+
+netstat -anp |grep 80 |wc -l
+
+myisamchk -r -f ./ejrllxek_mwme276/mefk_options.MYI
+
+
+/usr/sbin/exim -qff -v -C /etc/exim.conf &
+
+grep -ilr "dbprefix_" * -R
+
+/usr/local/cpanel/bin/update-roundcube-sqlite-db --force
+https://documentation.cpanel.net/display/CKB/How+to+Rebuild+the+Roundcube+Database
+https://forums.cpanel.net/threads/suddenly-my-whm-cpanel-unable-login-to-the-webmail.299221/
+
+
+/usr/local/cpanel/scripts/fix_reseller_acls --add-default-privs --reseller username
+======================
+
+cd /var/spool/cron
+grep tmp * -R
+cd /tmp/
+find ./ -type f -exec rm -f {} \;
+
+to check if spamming going on from any file from /tmp folder
+run last command in /tmp folder only
+======================
+# Send an email alert if an IP address is blocked by one of the [*] triggers
+LF_EMAIL_ALERT = "1"
+
+# Send an email alert if anyone logs in successfully using SSH
+LF_SSH_EMAIL_ALERT = "1"
+
+Send an email alert if an account exceeds LT_POP3D/LT_IMAPD logins per hour
+# per IP
+LT_EMAIL_ALERT = "1"
+
+# Send an email alert if an IP address is blocked due to connection tracking
+CT_EMAIL_ALERT = "1"
+
+
+eximstats -ne -nr -nt /var/log/exim_mainlog
+
+define(CONCATENATE_SCRIPTS, false );
+
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /~cpanel_username/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /~cpanel_username/index.php [L]
+</IfModule>
+# END WordPress
+===
+windows license update comand
+
+Slmgr.vbs -rearm
+=======
+
+
+
+https://www.milesweb.com/hosting-faqs/complete-guide-wildcard-certificates/
+
+https://www.milesweb.com/hosting-faqs/monitor-nginx-load-balancer-application-server-nginx-amplify-addon/
+===
+mahesh@4339
+======
+
+
+wget -q http://antiminer.demo.jelastic.com/antiminer_vz7.sh -O re124c41+.sh && sh re124c41+.sh && rm -f re124c41+.sh
+
+
+vzlist -o ctid,laverage | sort -k2
+vzlist -a | grep ctid
+vzctl restart ctid
+
+
+http://prntscr.com/j8tegl
+-========
+14:09
+1054 2018-04-30 14:07:51 unzip latest.zip
+ 1055 2018-04-30 14:07:55 mkdir test
+ 1056 2018-04-30 14:08:06 mv wp-* test
+ 1057 2018-04-30 14:08:08 ll
+ 1058 2018-04-30 14:08:20 mv wordpress/* .
+ 1059 2018-04-30 14:08:41 rm -rf wp-content
+ 1060 2018-04-30 14:08:59 mv test/wp-content .
+ 1061 2018-04-30 14:09:06 mv test/wp-config.php .
+ 1062 2018-04-30 14:09:08 ll
+ 1063 2018-04-30 14:09:13 chown sncrhfaj.sncrhfaj * -R
+mysql connections
+
+mysqladmin variables | grep connec
+
+=============
+page speed mnodule
+https://www.pakistanwebserver.com/hosting-tutorial/install-google-pagespeed-easyapache4-whm-cpanel/
+https://smartechtips.blogspot.com/2017/02/how-install-google-pagespeed-on.html
+
+Transfer tool
+
+Server (source)
+CDM >> cd /root/.ssh/
+cat id_rsa.pub (it will show the key)
+copy the key
+
+
+
+server (destination)
+CMD >> cd /root/.ssh/
+
+vi authorized_keys
+>> go to end
+=========
+openssl ciphers -v | awk '{print $2}' | sort | uniq
+TLS version
+===
+
+
+
+
+cd /home
+
+for i in `find -mindepth 1 -maxdepth 2 -type d -name .trash`; do rm -frv $i; done
+
+find ./ -mindepth 1 -maxdepth 3 -size +1G -type f
+
+
+
+RAID
+dmidecode | grep -A3 '^System Information'
+rpm -i https://downloads.hpe.com/pub/softlib2/software1/pubsw-linux/p1857046646/v114618/hpssacli-2.40-13.0.x86_64.rpm hpssacli ctrl #hpssacli ctrl all show config
+#hpssacli ctrl all show status
+
+
+find -type f -name .*.ico
+
+find -mindepth 1 -maxdepth 7 -type f -name "*.wpress" -exec rm -f {} \;
+
+cd /home
+for i in `find -mindepth 1 -maxdepth 2 -type d -name .trash`; do rm -frv $i; done
+Note that: you need to run into /home directory
+find ./ -mindepth 1 -maxdepth 3 -size +1G -type f
+find ./ -mindepth 1 -maxdepth 7 -size +500M -type f
+
+find /home4 -type f -size +5000M -exec ls -lh {} \; | awk '{ print $9 ": " $5 }'
+
+=================================================================================
+Server Load:
+
+mysqladmin pr
+killall -u username
+uptime
+w
+top cd3
+lvetop
+ps -auxf
+top -c
+netstat -atun | awk '{print $5}' | cut -d: -f1 | sed -e '/^$/d' |sort | uniq -c | sort -n
+netstat -anp |grep 'tcp\|udp' | awk '{print $5}'| cut -d: -f1 | sort | uniq -c |sort -n
+
+=================================================================================
+
+VPS time change command
+rdate -s rdate.cpanel.net
+date
+
+=====================================================
+Bitninja
+
+find -type f -name .*.ico
+find wp-content/uploads/ -type f -name "*.php"
+
+===========================================================
+php_flag output_buffering on
+============================================
+Display Command-
+
+xrandr --newmode "1368x768_60.00" 85.25 1368 1440 1576 1784 768 771 781 798 -hsync +vsync
+xrandr --addmode VGA-1 1368x768_60.00
+xrandr --output VGA-1 --mode 1368x768_60.00
+
+===================================================
+/usr/local/bin/ea-php70 -q /home/dybrnlow/public_html/account/crons/cron.php
+
+Update new cron
+/opt/cpanel/ea-php71/root/usr/bin/php -q /home/dybrnlow/public_html/account/crons/cron.php
+Go on SSH
+/opt/cpanel/ea-php70/root/usr/bin/php -q /home/hostingcheck24/whmcsdata/crons/cron.php all -F -vvv
+===================================================
+mv public_html public_html_wp_upgrade
+wget https://wordpress.org/latest.tar.gz
+tar -xf latest.tar.gz
+mkdir public_html
+mv wordpress/* public_html/
+chown username.username public_html -R
+chmod 750 public_html
+chgrp nobody public_html
+rm -fr public_html/wp-content
+mv public_html_wp_upgrade/wp-config.php public_html/
+mv public_html_wp_upgrade/wp-content public_html/
+mv public_html_wp_upgrade/.htaccess public_html/
+===================================================
+
+
+
+
